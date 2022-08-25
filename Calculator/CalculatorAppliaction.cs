@@ -65,6 +65,13 @@ namespace Calculator
 
             if (quitInput == "Y" || quitInput == "y")
             {
+                Console.Clear();
+                foreach (var result in Calculate.lastCalculation)
+                {
+                    Console.WriteLine(result);
+                }
+                command.Show("Press Enter To Exit");
+                Console.ReadLine();
                 runApp = false;
             }
             else if (quitInput == "N" || quitInput == "n")
