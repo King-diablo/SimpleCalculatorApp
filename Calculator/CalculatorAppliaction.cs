@@ -8,23 +8,27 @@ namespace Calculator
 {
     public class CalculatorAppliaction
     {
+        public static int AmountUsed;
+
         Input input = new Input();
         Commands command = new Commands();
         Validator validator = new Validator();
 
         public bool runApp = true;
         public bool success = false;
+        public string quitInput = "";
         public void StartApplication()
         {
             var input1 = 0d;
             var input2 = 0d;
             var choice = "a";
-            var quitInput = "N";
 
             while (runApp)
             {
                 Console.WriteLine($"{DateTime.Now.ToString()}\n");
 
+                AmountUsed++;
+                Console.WriteLine($"Calculator Was Used {AmountUsed} Times\n");
                 command.ShowStartingContent();
 
                 command.Show("Input A Number");
@@ -47,13 +51,13 @@ namespace Calculator
 
                 validator.HandleCalculation(choice);
 
-                HandleApplicationQuitting(quitInput);
+                HandleApplicationQuitting();
 
                 Console.Clear();
             }
         }
 
-        private void HandleApplicationQuitting(string quitInput)
+        private void HandleApplicationQuitting()
         {
             command.Show("Y/N to Quit");
 
@@ -69,7 +73,7 @@ namespace Calculator
             }
             else
             {
-                HandleApplicationQuitting(quitInput);
+                HandleApplicationQuitting();
             }
         }
 
