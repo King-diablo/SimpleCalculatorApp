@@ -23,6 +23,8 @@ namespace Calculator
 
             while (runApp)
             {
+                Console.WriteLine($"{DateTime.Now.ToString()}\n");
+
                 command.ShowStartingContent();
 
                 command.Show("Input A Number");
