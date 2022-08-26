@@ -26,8 +26,8 @@ namespace Calculator
             while (runApp)
             {
                 Console.WriteLine($"{DateTime.Now.ToString()}\n");
-
                 AmountUsed++;
+
                 Console.WriteLine($"Calculator Was Used {AmountUsed} Times\n");
                 command.ShowStartingContent();
 
@@ -66,9 +66,10 @@ namespace Calculator
             if (quitInput == "Y" || quitInput == "y")
             {
                 Console.Clear();
+                Console.WriteLine("Last Result\n");
                 foreach (var result in Calculate.lastCalculation)
                 {
-                    Console.WriteLine(result);
+                    Console.WriteLine(result.questionAndAnswer);
                 }
                 command.Show("Press Enter To Exit");
                 Console.ReadLine();
